@@ -1,0 +1,41 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "db-node-rc",
+        "labels": {
+            "name": "db-node-serving"
+        }
+    },
+    "spec": {
+        "replicas": 3,
+        "selector": {
+            "name": "rethinkdb-node"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "rethinkdb-node"
+                }
+            },
+            "spec": {
+                "volumes": null,
+                "containers": [{
+                    "name": "db-node",
+                    "image": "rbose85/rethinkdb-gke:latest",
+                    "env": [{
+                        "name": "RETHINKDB_INSTANCE_ROLE",
+                        "value": "NODE"
+                    }],
+                    "ports": [{
+                        "containerPort": 8080
+                    }, {
+                        "containerPort": 28015
+                    }, {
+                        "containerPort": 29015
+                    }]
+                }]
+            }
+        }
+    }
+}

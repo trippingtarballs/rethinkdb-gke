@@ -1,0 +1,16 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "db-nodes"
+    },
+    "spec": {
+        "ports": [{
+            "port": 28015,
+            "targetPort": 28015
+        }],
+        "selector": {
+            "name": "rethinkdb-node"
+        }
+    }
+}

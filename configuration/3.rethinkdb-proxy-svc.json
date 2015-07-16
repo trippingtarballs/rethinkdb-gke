@@ -1,0 +1,17 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "db-proxies"
+    },
+    "spec": {
+        "ports": [{
+            "port": 80,
+            "targetPort": 8080
+        }],
+        "selector": {
+            "name": "rethinkdb-proxy"
+        },
+        "type": "LoadBalancer"
+    }
+}

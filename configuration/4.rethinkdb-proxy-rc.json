@@ -1,0 +1,41 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "db-proxy-rc",
+        "labels": {
+            "name": "db-proxy-serving"
+        }
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "name": "rethinkdb-proxy"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "rethinkdb-proxy"
+                }
+            },
+            "spec": {
+                "volumes": null,
+                "containers": [{
+                    "name": "db-proxy",
+                    "image": "rbose85/rethinkdb-gke:latest",
+                    "env": [{
+                        "name": "RETHINKDB_INSTANCE_ROLE",
+                        "value": "PROXY"
+                    }],
+                    "ports": [{
+                        "containerPort": 8080
+                    }, {
+                        "containerPort": 28015
+                    }, {
+                        "containerPort": 29015
+                    }]
+                }]
+            }
+        }
+    }
+}
