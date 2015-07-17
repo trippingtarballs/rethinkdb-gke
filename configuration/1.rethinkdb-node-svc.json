@@ -2,7 +2,10 @@
     "kind": "Service",
     "apiVersion": "v1",
     "metadata": {
-        "name": "db-nodes"
+        "name": "db-nodes",
+        "labels": {
+            "component": "backend"
+        }
     },
     "spec": {
         "ports": [{

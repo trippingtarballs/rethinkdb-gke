@@ -2,7 +2,10 @@
     "kind": "Service",
     "apiVersion": "v1",
     "metadata": {
-        "name": "db-proxies"
+        "name": "db-proxies",
+        "labels": {
+            "component": "backend"
+        }
     },
     "spec": {
         "ports": [{
