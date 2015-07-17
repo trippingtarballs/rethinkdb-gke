@@ -43,8 +43,6 @@ if [ "$1" = 'rethinkdb' ]; then
         fi
         echo "inside .. RETHINKDB_JOIN_ARGS:" "${RETHINKDB_JOIN_ARGS[@]}"
         exec rethinkdb "${RETHINKDB_JOIN_ARGS[@]}" --bind all
-
-
     fi
 fi
 
