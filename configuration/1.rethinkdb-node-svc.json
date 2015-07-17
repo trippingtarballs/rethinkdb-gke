@@ -4,7 +4,8 @@
     "metadata": {
         "name": "db-nodes",
         "labels": {
-            "component": "backend"
+            "component": "backend",
+            "service": "database"
         }
     },
     "spec": {
